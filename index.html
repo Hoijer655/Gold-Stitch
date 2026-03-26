@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خيوط الذهب | Gold Stitch</title>
+    <meta name="description"
+        content="خيوط الذهب للخياطة والتفصيل | أرقى التصاميم وأجود الخامات. نعتني بأدق التفاصيل لنصنع لك أزياءً تخطف الأنظار. اطلب تفصيلك الخاص الآن واكتشف فخامة وضمانة الحرفة اليدوية.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@400;700;900&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --gold: #D4AF37;
+            --bg-color: #0a0a0a;
+            /* خلفية ليلية */
+            --card-bg: #111;
+
+            /* نصوص الصفحة العامة (التي ستتغير) */
+            --main-text: #ffffff;
+
+            /* نصوص البطاقات (ثابتة دائماً لتبدو واضحة فوق خلفية البطاقة الداكنة) */
+            --card-text-fixed: #ffffff;
+            --card-desc-fixed: #ddd;
+        }
+
+        /* التغيير عند الوضع النهاري (الخلفيات فقط) */
+        [data-theme="light"] {
+            --bg-color: #f4f4f4;
+            /* خلفية نهارية مريحة */
+            --card-bg: #ffffff;
+            --main-text: #1a1a1a;
+            /* نص غامق للوضع النهاري */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--main-text);
+            /* هنا الربط بالمتغير الذي يتغير */
+            transition: all 0.4s ease;
+        }
+
+        /* ضمان بقاء شعار "خيوط الذهب" بالذهبي */
+        .logo,
+        .gold-text,
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cairo', sans-serif;
+            color: var(--gold) !important;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            /* لمسة خفيفة ليظهر فوق الأبيض */
+        }
+
+        .item-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--gold);
+            /* الإطار يبقى ذهبي */
+        }
+
+        .navbar {
+            font-family: 'Cairo', sans-serif;
+            background-color: #050505;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            border-bottom: 2px solid #c5a059;
+            /* التعديل هنا: استخدام fixed لضمان الثبات المطلق */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10000;
+            /* رفع الرقم للتأكد أنه فوق كل صفحات الأقسام */
+            box-sizing: border-box;
+            /* لضمان أن الـ padding لا يزيد من عرض الشريط */
+            transition: all 0.4s ease;
+            /* لإضافة نعومة عند التغيير */
+        }
+
+        /* الكلاس الذي سنضيفه لاحقاً عند النزول */
+        .navbar.scrolled {
+            background: rgba(15, 15, 15, 0.7);
+            /* أسود شفاف */
+            backdrop-filter: blur(10px);
+            /* هذا هو تأثير الزجاج */
+            -webkit-backdrop-filter: blur(10px);
+            /* لدعم متصفحات آبل */
+            padding: 10px 5%;
+            /* يتقلص الحجم قليلاً عند النزول ليعطي أناقة */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            color: #c5a059;
+            /* لون ذهبي */
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-family: 'Amiri', serif;
+            /* خط ملكي للشعار */
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            /* مسافات واسعة توحي بالفخامة */
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.4s ease;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        /* تأثير عند مرور الفأرة */
+        .nav-links a:hover {
+            color: #c5a059;
+            /* يتحول للذهبي */
+            border-bottom: 2px solid #c5a059;
+            /* يظهر خط ذهبي تحت الكلمة */
+        }
+
+        /* Hero Section - الواجهة الرئيسية الضخمة */
+        .hero {
+            height: 100vh;
+            /* رابط الصورة الجديدة والحصرية لفستان "أنامل أحلام" */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+                url('./تغيير\ الخلفية\ .jpg') center/cover no-repeat fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 4px solid var(--primary-gold);
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 12vw, 7rem);
+            font-family: 'Amiri',
+                serif;
+            /* خط ملكي للشعار */
+            margin: 0;
+            color: #c5a059;
+            text-shadow: 0 0 20px rgba(197, 160, 89, 0.5);
+            animation: fadeInDown 1.2s;
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            font-family: 'Amiri', serif;
+            /* Amiri يعطيها طابعاً شعرياً فخماً */
+            letter-spacing: 3px;
+            color: #ddd;
+            margin-top: 10px;
+        }
+
+        /* Intro Box - صندوق الترحيب الزجاجي */
+        .glass-intro {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            max-width: 900px;
+            margin: -100px auto 50px;
+            border-radius: 20px;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        /* نص الوصف: خيوط الذهب للخياطة النسائية... */
+        .glass-intro p {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 400;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            /* مسافة مريحة بين الأسطر */
+            color: var(--text-color);
+        }
+
+        /* Container & Cards - الشبكة والبطاقات */
+        .main-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px 5%;
+        }
+
+        .section-card {
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .section-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.2);
+        }
+
+        .section-card img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .section-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card-info {
+            padding: 25px;
+            background: linear-gradient(to top, #000, transparent);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .card-info h3 {
+            color: var(--primary-gold);
+            font-size: 1.8rem;
+            margin: 0 0 10px 0;
+        }
+
+        /* تنسيق القسم العام */
+        .section {
+            padding: 100px 5%;
+            background-color: var(--dark-bg);
+            text-align: center;
+        }
+
+        .section h2 {
+            color: var(--primary-gold);
+            font-size: 3rem;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* إضافة خط ذهبي تحت العنوان للفخامة */
+        .section h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--primary-gold);
+            bottom: -10px;
+            right: 25%;
+        }
+
+        /* تنسيق الشبكة (Grid) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* تنسيق البطاقات (Cards) */
+        .card {
+            background: #141414 !important;
+            /* أسود فاتح قليلاً عن الخلفية */
+            padding: 40px;
+            border-radius: 20px !important;
+            border: 1px solid #333;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        /* تأثير عند المرور بالفأرة */
+        .card:hover {
+            transform: translateY(-20px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 20px 40px rgba(197, 160, 89, 0.15);
+        }
+
+        .card h3 {
+            color: var(--gold) !important;
+            margin: 20px 0;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: var(--main-text) !important;
+            /* نضمن أن يتغير مع المظهر */
+            opacity: 0.9 !important;
+            line-height: 1.6;
+            font-family: 'Cairo', sans-serif;
+            display: block !important;
+            /* لضمان عدم وجود خاصية hide */
+        }
+
+        /* تنسيق القائمة المنسدلةلأقسام الفساتين */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            /* مخفية في البداية */
+            position: absolute;
+            background-color: #141414;
+            /* نفس روح لون الموقع */
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            border-top: 2px solid #D4AF37;
+            /* خط ذهبي صغير فوق القائمة */
+            border-radius: 0 0 8px 8px;
+            text-align: right;
+            /* لتناسب اللغة العربية */
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        /* تغيير اللون عند المرور على القسم */
+        .dropdown-content a:hover {
+            background-color: #D4AF37;
+            color: black;
+        }
+
+        /* إظهار القائمة عند تمرير الفأرة */
+        .dropdown:hover .dropdown-content {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+            /* إضافة حركة ناعمة */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* اقسام الفساتين */
+        .page-section {
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* هذا الكود يجعل القسم يظهر بنعومة وكأنه يخرج من خلفية الصفحة */
+        .page-section {
+            display: none;
+            /* مخفي افتراضياً */
+            animation: slideIn 0.6s ease-out;
+            /* إضافة حركة انزلاق خفيفة */
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* تصميم بطاقات الاقسام  */
+
+        /* شبكة الأقسام */
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 40px 5%;
+        }
+
+        /* تصميم الكرت */
+        .section-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 420px;
+            cursor: pointer;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            /* إطار ذهبي شفاف */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-12px);
+            border-color: #D4AF37;
+            /* يبرز الذهب عند المرور */
+        }
+
+        /* تأثير الصورة */
+        .section-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .section-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* صندوق المعلومات (التأثير الزجاجي) */
+        .card-info {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 25px 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+            backdrop-filter: blur(8px);
+            /* تأثير الزجاج الضبابي */
+            -webkit-backdrop-filter: blur(8px);
+            color: white;
+            text-align: right;
+        }
+
+        .card-info h3 {
+            margin: 0;
+            font-size: 1.6rem;
+            color: var(--gold) !important;
+            /* الذهب يبقى ذهباً */
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .card-info p {
+            margin: 8px 0 0;
+            font-size: 0.95rem;
+            color: var(--card-desc-fixed) !important;
+            /* يبقى فاتحاً دائماً */
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.4;
+        }
+
+        /* ---------------------------------تنسيق صفحات اقسام الفساتين ------------ */
+        /* تنسيق موحد لجميع صفحات الأقسام */
+        .page-section {
+            width: 100%;
+            min-height: 100vh;
+            padding-top: 100px;
+            display: none;
+            /* تظهر فقط عند الطلب عبر JS */
+            background-color: var(--bg-color) !important;
+            color: var(--main-text) !important;
+
+            transition: background-color 0.4s ease, color 0.4s ease;
+            text-align: center;
+        }
+
+        /* تنسيق العناوين داخل الأقسام */
+        .page-section h2 {
+            color: #c5a059;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        /* شبكة الصور (Gallery) لكل الأقسام */
+        /* شبكة عرض الفساتين */
+        /* شبكة العرض - تجعل البطاقات تترتب بجانب بعضها حسب حجمها */
+        .items-grid {
+            display: flex;
+            /* تفعيل نظام الفليكس */
+            flex-wrap: wrap;
+            /* السماح للصور بالنزول لسطر جديد إذا زاد عددها */
+            justify-content: center;
+            /* هذا هو السر: توسيط العناصر أفقياً */
+            align-items: center;
+            /* توسيط العناصر عمودياً */
+            gap: 30px;
+            /* مسافة فخمة بين كل صورة وصورة */
+            padding: 40px 20px;
+            width: 100%;
+            /* التأكد من أن الحاوية تأخذ عرض الصفحة بالكامل */
+            margin: 0 auto;
+            /* التمركز في منتصف الصفحة */
+        }
+
+        /* تصميم البطاقة المرنة (تأخذ حجم الصورة) */
+        .item-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            width: fit-content;
+            /* العرض يعتمد على محتوى الصورة */
+            height: fit-content;
+            /* الطول يعتمد على محتوى الصورة */
+            max-width: 350px;
+            /* حد أقصى للعرض لكي لا تخرج عن السيطرة */
+            cursor: pointer;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+            background-color: transparent;
+        }
+
+        .item-card:hover {
+            transform: translateY(-10px);
+            border-color: #D4AF37;
+        }
+
+        /* الصورة - تظهر بحجمها الطبيعي وتجعل البطاقة تتمدد معها */
+        .item-card img {
+            display: block;
+            /* يمنع وجود فراغ صغير تحت الصورة */
+            width: 100%;
+            height: auto;
+            /* يحافظ على التناسب الطولي والعرضي للفستان */
+            object-fit: contain;
+            transition: transform 0.6s ease;
+        }
+
+        /* صندوق المعلومات - يظهر عند التأشير ويغطي الجزء السفلي فقط */
+        .item-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 60%, transparent);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: white;
+            text-align: center;
+            transition: all 0.4s ease;
+            opacity: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        /* نصوص البطاقات في صفحات الأقسام (Overlay) */
+        .item-overlay p {
+            color: var(--card-text-fixed) !important;
+            /* يبقى أبيض دائماً */
+            font-weight: bold;
+        }
+
+        .item-card:hover .item-overlay {
+            bottom: 0;
+            opacity: 1;
+        }
+
+        /* زر الطلب بتصميم يليق بالفخامة */
+        .order-btn {
+            display: inline-block;
+            background: #D4AF37;
+            color: #000;
+            padding: 8px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .order-btn:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        .back-btn {
+            background: transparent;
+            color: #c5a059;
+            border: 1px solid #c5a059;
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            margin-bottom: 30px;
+            transition: 0.3s;
+            display: inline-block;
+            /* لضمان ظهور الزر بشكل صحيح */
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background: #c5a059;
+            color: #000;
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
+        }
+
+        /* ---------------------------------------------------------------------------- */
+        /* ---------تنسيق زر رابط الواتس اب فوق كل صورة --------*/
+        .order-btn {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: #c5a059;
+            /* ذهبي */
+            color: #000 !important;
+            /* نص أسود ليكون واضحاً */
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            border: 1px solid #c5a059;
+        }
+
+        .order-btn:hover {
+            background-color: transparent;
+            color: #c5a059 !important;
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.5);
+        }
+
+        .order-btn i {
+            margin-left: 5px;
+            /* مسافة لأيقونة الواتساب */
+        }
+
+        /* تنسيق زر المظهر */
+        .theme-switch {
+            width: 45px;
+            height: 45px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--gold);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            margin-right: 15px;
+            /* مسافة بسيطة عن الروابط */
+        }
+
+        .theme-switch:hover {
+            background: var(--gold);
+            color: #000;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* تنسيق عبارة اكتشفي اكثر  */
+        .cta-section {
+            text-align: center;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(212, 175, 55, 0.05);
+            /* لمحة ذهبية شفافة جداً */
+            border-radius: 15px;
+            border: 1px dashed var(--gold);
+            /* إطار ذهبي منقط يعطي طابع الخياطة */
+            max-width: 80%;
+        }
+
+        .cta-section p {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-color);
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+        }
+
+        /* إضافة أيقونة ذهبية صغيرة بجانب النص */
+        .cta-section p::before {
+            content: '\f105';
+            /* سهم Font Awesome */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-left: 10px;
+            color: var(--gold);
+        }
+
+        /*------------------------------ تنسيق خلفية الصورة ولون الخلفية عندما اهمس عليها  --------------------------*/
+        /* تنسيق صندوق التكبير (الخلفية) */
+        .lightbox {
+            display: none;
+            /* مخفي افتراضياً */
+            position: fixed;
+            /* ثابت فوق كل شيء */
+            z-index: 20000;
+            /* رقم عالي جداً لضمان ظهوره فوق الـ Navbar */
+            padding-top: 100px;
+            /* مسافة من الأعلى */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* ملء الشاشة عرضاً */
+            height: 100%;
+            /* ملء الشاشة طولاً */
+            overflow: auto;
+            /* إضافة شريط تمرير إذا كانت الصورة ضخمة */
+            background-color: rgba(0, 0, 0, 0.9);
+            /* خلفية سوداء داكنة جداً */
+            backdrop-filter: blur(5px);
+            /* تأثير ضبابي خفيف للخلفية */
+            cursor: zoom-out;
+            /* شكل الماوس عند الخروج */
+        }
+
+        /* تنسيق الصورة المكبرة */
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            /* عرض الصورة 80% من الشاشة */
+            max-width: 700px;
+            /* حد أقصى للعرض لكي لا تخرج عن السيطرة */
+            border: 2px solid var(--gold);
+            /* إطار ذهبي فخم حول الصورة */
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(197, 160, 89, 0.5);
+            /* ظل ذهبي ناعم */
+
+            /* حركة ظهور ناعمة للصورة */
+            animation: zoomIn 0.4s ease;
+        }
+
+        /* تنسيق زر الإغلاق (X) */
+        .close-lightbox {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: var(--gold);
+            /* لون ذهبي */
+            font-size: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 20001;
+        }
+
+        .close-lightbox:hover {
+            color: #fff;
+            /* يتحول للأبيض عند تمرير الماوس */
+            transform: scale(1.1);
+        }
+
+        /* تنسيق الوصف تحت الصورة */
+        .caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #fff;
+            font-family: 'Cairo', sans-serif;
+            padding: 20px 0;
+            font-size: 1.2rem;
+        }
+
+        /* حركة الظهور (Animation) */
+        @keyframes zoomIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* متجاوب مع الهواتف الذكية */
+        @media only screen and (max-width: 700px) {
+            .lightbox-content {
+                width: 95%;
+                /* الصورة تأخذ مساحة أكبر في الهواتف */
+            }
+
+            .close-lightbox {
+                top: 15px;
+                right: 25px;
+                font-size: 40px;
+            }
+        }
+
+        /* ------------------------------------------------------------------------------------- */
+
+        /* Footer */
+        footer {
+            text-align: center;
+            font-family: 'Cairo', sans-serif;
+            /* خط عصري وقوي للعناوين */
+            padding: 60px 20px;
+            background-color: #050505 !important;
+            border-top: 1px solid var(--deep-brown);
+            color: var(--gold) !important;
+        }
+
+        .designer-tag {
+            color: var(--gold) !important;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: block;
+            margin-top: 15px;
+
+        }
+    </style>
+</head>
+<!-- كود الشفافية لشريط العلوي -->
+<script>
+    window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+    });
+
+</script>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">خيوط الذهب</div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showPage('home')">الرئيسية</a></li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">أقسام الفساتين <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="showPage('formal')">فساتين رسمية</a>
+                    <a href="#" onclick="showPage('traditional')">فساتين تراثية</a>
+                    <a href="#" onclick="showPage('jalabiyat')">الجلابيات</a>
+                    <a href="#" onclick="showPage('short-dresses')">فساتين قصيرة</a>
+                    <a href="#" onclick="showPage('evening')">فساتين سهرة</a>
+                    <a href="#" onclick="showPage('girls-dresses')">فساتين بناتية</a>
+                    <a href="#" onclick="showPage('embroidered')">فساتين مطرزة</a>
+                    <a href="#" onclick="showPage('golden_threads_creations')">اعمال خيوط الذهب</a>
+
+                </div>
+            </li>
+            <li><a href="#services">لماذا نحن؟</a></li>
+            <li>
+                <a href="https://wa.me/967700000000?text=مرحباً،%20أرغب%20في%20الاستفسار%20عن%20تفصيل%20فساتين%20في%20خيوط%20الذهب"
+                    target="_blank" onclick="showDemoAlert(event)">
+                    تواصل معنا <i class="fab fa-whatsapp"></i>
+                </a>
+            </li>>
+
+        </ul>
+        <!-- تغيير المظهر ليلي او نهاري -->
+        <div class="theme-switch" id="theme-toggle">
+            <i id="theme-icon" class="fas fa-moon"></i>
+        </div>
+    </nav>
+    <!-- اعطاء كل قسم صفحة خاصة به -->
+    <main id="main-container">
+        <!-- --------------------------الصفحة الرئيسية ------------------------------------ -->
+        <section id="home">
+            <header class="hero">
+                <h1 class="animate__animated animate__fadeInDown">خيوط الذهب</h1>
+                <p class="animate__animated animate__fadeInUp">للأناقةِ سيادة، وللتفاصيلِ حكاية</p>
+            </header>
+
+            <div class="glass-intro animate__animated animate__fadeIn">
+                <h2 style="color: var(--primary-gold);">مرحباً بكِ في عالم الأناقة</h2>
+                <p>خيوط الذهب للخياطة النسائية - خبرة سنوات نضعها بين يديكِ لتحويل خيالاتك إلى قطع قماش تنبض بالحياة.
+                </p>
+            </div>
+
+            <div class="main-container">
+                <div class="sections-grid">
+
+                    <div class="section-card">
+                        <img src=".//قصير5.jpg" alt="فساتين قصيرة" onclick="openLightbox(this)">
+                        <div class="card-info">
+                            <h3>الفساتين القصيرة</h3>
+                            <p>أناقة عصرية ولمسات مفعمة بالحيوية.</p>
+                            <p>سعر الخياط: 4000</p>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <img src=".//بناتي5.jpg" alt="فساتين بناتية" onclick="openLightbox(this)">
+                        <div class="card-info">
+                            <h3>فساتين البنات</h3>
+                            <p>تصاميم رقيقة لأميراتنا الصغيرات.</p>
+                            <p>سعر الخياط : 4000</p>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <img src=".//تراثي7.jpg" alt="فساتين تراثية" onclick="openLightbox(this)">
+                        <div class="card-info">
+                            <h3>الفساتين التراثية</h3>
+                            <p>أصالة الماضي بلمسة "خيوط الذهب" العصرية.</p>
+                            <p>السعر : حسب الطلب</p>
+
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <img src=".//مطرز4.jpg" alt="فساتين مطرزة" onclick="openLightbox(this)">
+                        <div class="card-info">
+                            <h3>الفساتين المطرزة</h3>
+                            <p>دقة التطريز وفخامة التفاصيل اليدوية.</p>
+                            <p> سعر الخياط : 10000</p>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <img src=".//جلابية9.jfif" alt="جلابيات" onclick="openLightbox(this)">
+                        <div class="card-info">
+                            <h3>الجلابيات الراقية</h3>
+                            <p>راحة وفخامة تليق بمناسباتكِ السعيدة.</p>
+                            <p>سعر الخياط : 3000</p>
+                        </div>
+                    </div>
+
+
+                    <div class="section-card">
+                        <img src=".//رسمي رئيسي.jfif" alt="الفساتين الملكية" onclick="openLightbox(this)">
+                        <div class="card-info">
+                            <h3>الفساتين الرسمية</h3>
+                            <p>إطلالة عملية بلمسة أنثوية طاغية.</p>
+                            <p>سعر الخياط : 6000</p>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <img src=".//سهرة13.png" alt="فساتين سهرة" onclick="openLightbox(this)">
+                        <div class="card-info">
+                            <h3>فساتين السهرة</h3>
+                            <p>كوني نجمة الحفل بتصاميمنا الراقية.</p>
+                            <p>سعر الخياط : 6000</p>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <img src=".//سهرة7.jpg" alt="فساتين شبابية" onclick="openLightbox(this)">
+                        <div class="card-info">
+                            <h3>الفساتين الشبابية</h3>
+                            <p>تصاميم عصرية وألوان مبهجة تناسب حيويتك.</p>
+                            <p>سعر الخياط : 4000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cta-section">
+                <p>تصفحي اكثر واكتشفي ما يناسب حفلاتكِ في اقسام الفساتين</p>
+            </div>
+            <section id="services" class="section">
+                <h2>لماذا نحن؟</h2>
+                <div class="grid">
+                    <div class="card">
+                        <i class="fas fa-cut fa-3x" style="color: var(--gold); margin-bottom: 15px;"></i>
+                        <h3>دقة التنفيذ</h3>
+                        <p>نعتني بأدق التفاصيل في كل غرزة لنضمن لك إطلالة ملكية.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-magic fa-3x" style="color: var(--gold); margin-bottom: 15px;"></i>
+                        <h3>تصاميم حصرية</h3>
+                        <p>نصمم لك ما يعبر عن شخصيتك، لا شيء مكرر في قاموسنا.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-clock fa-3x" style="color: var(--gold); margin-bottom: 15px;"></i>
+                        <h3>سرعة واحترافية</h3>
+                        <p>نلتزم بمواعيدنا لنكون دائماً خيارك الأول في مناسباتك الكبرى.</p>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+        <!-- ----------------------------------------------------------------------------------------------------------- -->
+
+        <!-- -----------------------------قسم الفساتين الرسمية------------------------------------------------ -->
+        <section id="formal" class="page-section" style="display: none;">
+            <h2>الفساتين الرسمية</h2>
+            <button onclick="showPage('home')" class="back-btn">
+                <i class="fas fa-arrow-right"></i> العودة للرئيسية
+            </button>
+            <div class="items-grid">
+                <div class="item-card">
+                    <img src=".//رسمي10.jpg" alt="فستان رسمي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//رسمي12.jfif" alt="فستان رسمي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//رسمي3.jpg" alt="فستان رسمي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//رسمي4.jpg" alt="فستان رسمي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//رسمي5.jpg" alt="فستان رسمي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//رسمي6.jpg" alt="فستان رسمي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//رسمي7.jpg" alt="فستان رسمي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//رسمي8.jpg" alt="فستان رسمي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//رسمي9.jpg" alt="فستان رسمي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//رسمي.jfif" alt="فستان رسمي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ------------------------------------------------------------------------------------------------- -->
+
+        <!-- --------------------------قسم الفساتين التراثية ----------------------------------------------- -->
+        <section id="traditional" class="page-section" style="display: none;">
+            <h2>الفساتين التراثية</h2>
+            <button onclick="showPage('home')" class="back-btn">
+                <i class="fas fa-arrow-right"></i> العودة للرئيسية
+            </button>
+            <div class="items-grid">
+                <div class="item-card">
+                    <img src=".//تراثي11.jpg" alt="فستان تراثي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//تراثي2.jpg" alt="فستان تراثي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//تراثي3.jpg" alt="فستان تراثي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//تراثي4.jpg" alt="فستان تراثي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//تراثي5.jpg" alt="فستان تراثي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//تراثي6.jpg" alt="فستان تراثي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//تراثي.jfif" alt="فستان تراثي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//تراثي8.webp" alt="فستان تراثي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//تراثي9.jpg" alt="فستان تراثي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//تراثي12.jpg" alt="فستان تراثي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- -------------------------------------------------------------------------------------------------- -->
+
+        <!-- -----------------------------------------الجلابيات ----------------------------------------------- -->
+        <section id="jalabiyat" class="page-section">
+            <h2>الجلابيات الراقية</h2>
+            <button onclick="showPage('home')" class="back-btn">
+                <i class="fas fa-arrow-right"></i> العودة للرئيسية
+            </button>
+            <div class="items-grid">
+                <div class="item-card">
+                    <img src=".//جلابية1.png" alt="جلابية" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//جلابية2.jfif" alt="جلابية" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//جلابية3.png" alt="جلابية" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//جلابية4.jfif" alt="جلابية" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//جلابية5.jfif" alt="جلابية" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//جلابية6.jfif" alt="جلابية" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//جلابية7.jfif" alt="جلابية" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//جلابية8.jfif" alt="جلابية" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//جلابية12.jfif" alt="جلابية" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//جلابية10.jfif" alt="جلابية" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ---------------------------------------------------------------------------------------------------- -->
+
+        <!------------------------------------- فساتين السهرة -------------------------------------------------- -->
+        <section id="evening" class="page-section" style="display: none;">
+            <h2 style="color: #D4AF37; font-size: 2.5rem; margin-bottom: 20px;">فساتين السهرة</h2>
+            <button onclick="showPage('home')" class="back-btn">
+                <i class="fas fa-arrow-right"></i> العودة للرئيسية
+            </button>
+            <div class="items-grid">
+                <div class="item-card">
+                    <img src="./سهرة11.jpg" alt="فستان سهرة" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="./سهرة 1.jfif" alt="فستان سهرة" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="./سهرة2.jfif" alt="فستان سهرة" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="./سهرة3.jfif" alt="فستان سهرة" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//سهرة5.jpg" alt="فستان سهرة" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="./سهرة6.jpg" alt="فستان سهرة" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="./سهرة7.jpg" alt="فستان سهرة" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="./سهرة8.jpg" alt="فستان سهرة" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="./سهرة9.jpg" alt="فستان سهرة" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="./سهرة10.jfif" alt="فستان سهرة" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ----------------------------------------------------------------------------------------------------- -->
+
+        <!-- ---------------------------------------قسم الفساتين القصيرة --------------------------------------- -->
+        <section id="short-dresses" class="page-section" style="display: none;">
+            <h2>الفساتين القصيرة</h2>
+            <button onclick="showPage('home')" class="back-btn">
+                <i class="fas fa-arrow-right"></i> العودة للرئيسية
+            </button>
+            <div class="items-grid">
+                <div class="item-card">
+                    <img src=".//قصير1.jpg" alt="فستان قصير" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//قصير2.jpg" alt="فستان قصير" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//قصير3.jpg" alt="فستان قصير" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//قصير4.jpg" alt="فستان قصير" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//قصير5.jpg" alt="فستان قصير" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//قصير6.jpg" alt="فستان قصير" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//قصير7.jpg" alt="فستان قصير" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//قصير8.jpg" alt="فستان قصير" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//قصير9.jpg" alt="فستان قصير" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//قصير10.jpg" alt="فستان قصير" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ---------------------------------------------------------------------------------------------------- -->
+
+        <!-- ------------------------------------قسم الفساتين البناتية ---------------------------------------- -->
+        <section id="girls-dresses" class="page-section" style="display: none;">
+            <h2>الفساتين البناتية</h2>
+            <button onclick="showPage('home')" class="back-btn">
+                <i class="fas fa-arrow-right"></i> العودة للرئيسية
+            </button>
+            <div class="items-grid">
+                <div class="item-card">
+                    <img src=".//بناتي1.jpg" alt="فستان بناتي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967000000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//بناتي2.jpg" alt="فستان بناتي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967000000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//بناتي3.jpg" alt="فستان بناتي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967000000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//بناتي4.jpg" alt="فستان بناتي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967000000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//بناتي5.jpg" alt="فستان بناتي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967000000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//بناتي6.jpg" alt="فستان بناتي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967000000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//بناتي7.jpg" alt="فستان بناتي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967000000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//بناتي8.jpg" alt="فستان بناتي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967000000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//بناتي9.jpg" alt="فستان بناتي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967000000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//بناتي10.jfif" alt="فستان بناتي" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967000000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- --------------------------------------------------------------------------------------------------- -->
+
+        <!-- -------------------------------------قسم الفساتين المطرزة----------------------------------------- -->
+        <section id="embroidered" class="page-section" style="display: none;">
+            <h2>الفساتين المطرزة</h2>
+            <button onclick="showPage('home')" class="back-btn">
+                <i class="fas fa-arrow-right"></i> العودة للرئيسية
+            </button>
+            <div class="items-grid">
+                <div class="item-card">
+                    <img src=".//مطرز1.jpg" alt="فستان مطرز" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//مطرز2.jpg" alt="فستان مطرز" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//مطرز3.jpg" alt="فستان مطرز" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//مطرز4.jpg" alt="فستان مطرز" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//مطرز5.jpg" alt="فستان مطرز" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//مطرز6.jpg" alt="فستان مطرز" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//مطرز7.jpg" alt="فستان مطرز" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//مطرز8.jpg" alt="فستان مطرز" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//مطرز9.jpg" alt="فستان مطرز" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src=".//مطرز11.jfif" alt="فستان مطرز" onclick="openLightbox(this)">
+                    <div class="item-overlay">
+                        <p>السعر: حسب الطلب</p>
+                        <a href="https://wa.me/967700000000?text=مرحباً خيوط الذهب، استفسار عن فستان السهرة كود 01"
+                            target="_blank" class="order-btn" onclick="showDemoAlert(event)">
+                            <i class="fab fa-whatsapp"></i> اطلبي الآن
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- -------------------------------------------------------------------------------------------------- -->
+
+        <!-- --------------------------------------قسم اعمال خيوط الذهب ------------------------------------- -->
+        <section id="golden_threads_creations" class="page-section" style="display: none;">
+            <h2>نبذة من اعمال خيوط الذهب</h2>
+            <button onclick="showPage('home')" class="back-btn">
+                <i class="fas fa-arrow-right"></i> العودة للرئيسية
+            </button>
+
+            <div id="works-container" class="items-grid">
+            </div>
+        </section>
+
+    </main>
+
+
+
+    <!-- اظهار القسم المطلوب فقط -->
+    <script>
+        // 1. وظيفة تأثير الزجاج عند التمرير
+        window.onscroll = function () {
+            var nav = document.querySelector('.navbar');
+            if (window.pageYOffset > 50) {
+                nav.classList.add("scrolled");
+            } else {
+                nav.classList.remove("scrolled");
+            }
+        };
+
+        function showPage(pageId) {
+            // 1. إخفاء الصفحة الرئيسية (بكل الطرق الممكنة)
+            const home = document.getElementById('home');
+            if (home) {
+                home.style.setProperty('display', 'none', 'important');
+            }
+
+            // 2. إخفاء جميع الأقسام الفرعية الأخرى
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(s => {
+                s.style.setProperty('display', 'none', 'important');
+            });
+
+            // 3. إظهار القسم المطلوب فقط
+            const target = document.getElementById(pageId);
+            if (target) {
+                target.style.setProperty('display', 'block', 'important');
+                window.scrollTo(0, 0); // الصعود للأعلى
+                console.log("تم إظهار قسم: " + pageId);
+            } else {
+                console.error("لم يتم العثور على قسم باسم: " + pageId);
+            }
+        }
+        // تضع الصورة عند الضغط عليها في خلفية سوداء
+        function openLightbox(imgElement) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+
+            lightboxImg.src = imgElement.src; // أخذ رابط الصورة
+            lightbox.style.display = 'flex'; // إظهار الصندوق
+            document.body.style.overflow = 'hidden'; // منع التمرير في الصفحة الخلفية لراحة الزبونة
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none'; // إخفاء الصندوق
+            document.body.style.overflow = 'auto'; // إعادة التمرير
+        }
+
+        // زر تغيير المظهر ليلي او نهاري
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        themeToggle.addEventListener('click', () => {
+            if (document.documentElement.getAttribute('data-theme') === 'light') {
+                document.documentElement.removeAttribute('data-theme');
+                themeIcon.className = 'fas fa-moon';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeIcon.className = 'fas fa-sun';
+            }
+        });
+
+        // هذا الجزء يضمن أن الأيقونة واللون صحيحين عند فتح أي صفحة جديدة
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            if (savedTheme === 'light') {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        };
+        //------------------------------------كود تكبير الصورة عند الهمس عليها
+        // وظيفة فتح صندوق التكبير (Lightbox)
+        function openLightbox(imgElement) {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const lightboxCaption = document.getElementById("lightbox-caption");
+
+            lightbox.style.display = "block"; // إظهار الصندوق
+            lightboxImg.src = imgElement.src; // وضع رابط الصورة المضغوطة في الصندوق
+
+            // وضع وصف الصورة (من الـ alt) تحتها
+            lightboxCaption.innerHTML = imgElement.alt;
+        }
+
+        // وظيفة إغلاق صندوق التكبير
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+        }
+
+        // إضافة إمكانية الإغلاق بزر Esc من لوحة المفاتيح
+        document.addEventListener('keydown', function (event) {
+            if (event.key === "Escape") {
+                closeLightbox();
+            }
+        });
+        // ------------------------------------------------------------------
+
+        function showDemoAlert(event) {
+            // منع الرابط من فتح الواتساب أو الانتقال لصفحة أخرى فوراً
+            if (event) event.preventDefault();
+
+            // إظهار رسالة التنبيه
+            alert("تنبيه: هذا الموقع نسخة تجريبية . ميزة الطلب والتواصل غير فعالة حالياً.");
+        }
+
+        //---------------------قسم اعمال خيوط الذهب ------------
+        function loadGoldenWorks() {
+            const container = document.getElementById('works-container');
+            let imagesHTML = '';
+
+            // حلقة تكرار لإنشاء 50 كارت فستان
+            for (let i = 1; i <= 51; i++) {
+                imagesHTML += `
+                <div class="item-card">
+                <img src="./اعمال خيوط الذهب/${i}.jpg" alt="عمل خيوط الذهب رقم ${i}" onclick="openLightbox(this)" loading="lazy">
+                <div class="item-overlay">
+                </div>
+            </div>
+            `;
+            }
+
+            container.innerHTML = imagesHTML;
+        }
+
+        // استدعاء الدالة عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', loadGoldenWorks);
+        //--------------------------------------------------------
+    </script>
+
+
+    <footer>
+        <p class="designer-tag">تصميم وتطوير: هاجر الزبيدي | Hajer Alzabidi</p>
+        <p style="color: #666;">&copy; 2026 جميع الحقوق محفوظة لـ خيوط الذهب</p>
+    </footer>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="lightbox-caption" class="caption"></div>
+    </div>
+
+</body>
+
+</html>
